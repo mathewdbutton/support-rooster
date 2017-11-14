@@ -40,7 +40,7 @@ class SupportPersonListContainer extends Component {
 
 SupportPersonListContainer.defaultProps = {
     people: [],
-    futureWeeks: 5
+    futureWeeks: 0
 }
 
 SupportPersonListContainer.propTypes = {

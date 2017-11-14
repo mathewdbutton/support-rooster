@@ -3,6 +3,11 @@ import SupportPersonListContainer from './SupportPersonList/support_person_list_
 import FilterInput from './FilterInput/filter_input_container'
 import Moment from 'moment'
 import {milliSecondsToWeeks} from '../utils/date_helper'
+import styled from 'styled-components'
+
+const RootContainer = styled.div`
+margin: 10px
+`
 
 export default class RootComponent extends Component {
     constructor(props) {
@@ -31,11 +36,11 @@ export default class RootComponent extends Component {
 
     render() {
         return (
-            <div className="root-container">
+            <RootContainer>
                 <h1>Support Rooster</h1>
                 <FilterInput filterChanged={this.filterChanged}/>
                 <SupportPersonListContainer {...this.state}/>
-            </div>
+            </RootContainer>
         )
     }
 

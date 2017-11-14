@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "moment": "^2.19.1",
-    "node-static": "^0.7.10",
     "randomcolor": "^0.5.3",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
