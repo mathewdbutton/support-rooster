@@ -8,6 +8,10 @@ const randColour = RandomColor({
     format: 'rgb'
 });
 
+const PersonWrapper = styled.div`
+        color: ${props => props.textColour};
+        background-color: ${props => props.backgroundColour};
+        `
 const SupportPersonItemView = (props) => {
 
     const { name, index, startDate, endDate } = props
@@ -22,13 +26,10 @@ const SupportPersonItemView = (props) => {
         }
     }
 
-    const PersonWrapper = styled.div`
-        color: ${getTextColor(randColour[index])};
-        background-color:${randColour[index]}
-        `
+
 
     return (
-        <PersonWrapper>
+        <PersonWrapper backgroundColour={randColour[index]} textColour={getTextColor(randColour[index])}>
             <span>{name}</span>
             <p>{startDate} - {endDate}</p>
             <hr/>
