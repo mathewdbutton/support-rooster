@@ -9,29 +9,42 @@ class FilterInputContainer extends Component {
             tooMany : false,
             weeksInAdvance: 5
         }
+        this.inputChanged = this.inputChanged.bind(this)
+        this.incrementValue = this.incrementValue.bind(this)
         this.valueChanged = this.valueChanged.bind(this)
     }
 
-    componentDidMount() {
-        this.props.filterChanged(this.state.weeksInAdvance)
+    incrementValue(e) {
+        const changedValue = e.target.value === "" ? undefined : e.target.value
+        const {weeksInAdvance} = this.state
+        this.valueChanged(parseInt(weeksInAdvance) + parseInt(changedValue))
     }
 
-    valueChanged(e) {
-        const futureWeeks = e.target.value === "" ? undefined : e.target.value
-        if(futureWeeks > 0) {
-            this.setState({weeksInAdvance:futureWeeks})
-            if (futureWeeks < 1000) {
+    valueChanged(value) {
+        if(value > 0) {
+            this.setState({weeksInAdvance:value})
+            if (value < 1000) {
                 this.setState({tooMany:false})
-                this.props.filterChanged(futureWeeks)
+                this.props.filterChanged(value)
             } else {
                 this.setState({tooMany:true})
             }
         }
     }
 
+    componentDidMount() {
+        this.props.filterChanged(this.state.weeksInAdvance)
+    }
+
+    inputChanged(e) {
+        const futureWeeks = e.target.value === "" ? undefined : e.target.value
+        this.valueChanged(futureWeeks)
+
+    }
+
     render() {
         return (
-            <FilterInputView weeksInAdvance={this.state.weeksInAdvance} showNope={this.state.tooMany} valueChanged={this.valueChanged}/>
+            <FilterInputView incrementValue={this.incrementValue} weeksInAdvance={this.state.weeksInAdvance} showNope={this.state.tooMany} valueChanged={this.inputChanged}/>
         );
     }
 }
