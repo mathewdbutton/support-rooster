@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.1",
+    "bulma": "^0.6.1",
     "moment": "^2.19.1",
     "randomcolor": "^0.5.3",
     "react": "^16.1.0",

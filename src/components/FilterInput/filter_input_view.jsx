@@ -4,7 +4,7 @@ import nope from '../../images/how-about-no-quote-1.jpg'
 
 const FilterInputView = (props) => {
     const showNope = (show) => {
-        return show ? <img src={nope}/> : null
+        return show ? <img src={nope} alt="Dr Evil: How About No!"/> : null
     }
 
     return (

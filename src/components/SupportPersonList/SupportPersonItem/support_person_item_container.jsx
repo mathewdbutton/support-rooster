@@ -1,17 +1,48 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import SupportPersonItemView from './support_person_item_view'
 
-const SupportPersonItemContainer = (props) => {
-    const {startDate, endDate, name, index} = props
+class SupportPersonItemContainer extends Component {
 
-    const formatDates = (date) => {
-        return date.format("dddd, MMMM Do")
+    constructor(props) {
+        super(props)
+        this.state = {
+            loaded:false
+        }
     }
 
-    return (
-        <SupportPersonItemView startDate={formatDates(startDate)} endDate={formatDates(endDate)} name={name} index={index} />
-    );
+    componentDidMount() {
+        setTimeout(() =>  this.setState({
+            loaded:true
+        }))
+
+    }
+
+    componentWillUnmount() {
+        this.setState({
+            loaded:false
+        })
+    }
+
+    formatDates(date) {
+        return date.format("dddd, MMM Do")
+    }
+
+
+    render() {
+        const { startDate, endDate, name, index, image } = this.props
+        const {loaded} = this.state
+        return (
+            <SupportPersonItemView startDate={this.formatDates(startDate)}
+                                   endDate={this.formatDates(endDate)}
+                                   name={name}
+                                   index={index}
+                                   image={image}
+                                   loaded={loaded}
+            />
+        );
+    }
+
 
 }
 

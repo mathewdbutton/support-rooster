@@ -4,6 +4,7 @@ import FilterInput from './FilterInput/filter_input_container'
 import Moment from 'moment'
 import {milliSecondsToWeeks} from '../utils/date_helper'
 import styled from 'styled-components'
+import 'bulma/css/bulma.css'
 
 const RootContainer = styled.div`
 margin: 10px
@@ -36,8 +37,8 @@ export default class RootComponent extends Component {
 
     render() {
         return (
-            <RootContainer>
-                <h1>Support Rooster</h1>
+            <RootContainer className="container">
+                <h1 className="title">Support Rooster</h1>
                 <FilterInput filterChanged={this.filterChanged}/>
                 <SupportPersonListContainer {...this.state}/>
             </RootContainer>
