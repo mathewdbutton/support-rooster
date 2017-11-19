@@ -34,7 +34,7 @@ class SupportPersonListContainer extends Component {
         for (let i = 0; i < this.props.futureWeeks; i++) {
             let date = Moment().add(i, "week")
             let currentPerson = people[i % people.length]
-            supportPersonList.push(<div key={i} className="column is-one-quarter"><SupportPersonItem
+            supportPersonList.push(<div key={i} className="column is-one-quarter-desktop is-half-mobile"><SupportPersonItem
                 index={i % people.length}
                 startDate={Moment(date).isoWeekday(1)}
                 endDate={Moment(date).isoWeekday(5)}
@@ -51,7 +51,7 @@ class SupportPersonListContainer extends Component {
     render() {
         return (
             <div className="support-person-list-container">
-                <div className="columns is-multiline">
+                <div className="columns  is-multiline is-mobile is-desktop">
                     {this.state.imageList === [] ? null : this.constructList()}
                 </div>
             </div>
