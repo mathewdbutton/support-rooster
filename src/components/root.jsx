@@ -7,7 +7,6 @@ import styled from 'styled-components'
 import 'bulma/css/bulma.css'
 
 const RootContainer = styled.div`
-margin: 10px
 `
 
 export default class RootComponent extends Component {
