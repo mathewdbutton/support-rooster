@@ -1,4 +1,4 @@
-import DateHelper from './utils/date_helper'
+import DateHelper from '../utils/date_helper'
 const millisecondsInWeek = 604800000
 
 beforeEach(() => {

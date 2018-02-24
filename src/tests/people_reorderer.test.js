@@ -1,5 +1,5 @@
 import Moment from 'moment'
-import PeopleReorderer from './utils/people_reorderer'
+import PeopleReorderer from '../utils/people_reorderer'
 let supportList;
 
 beforeEach(() => {
