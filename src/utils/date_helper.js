@@ -1,7 +1,11 @@
-const milliSecondsToWeeks = (milliseconds) => {
+const millisecondsToWeeks = (milliseconds) => {
     const seconds = milliseconds/1000
-    const weeks = seconds/(60 * 60 * 24 * 7)
-    return weeks
+    return seconds/(60 * 60 * 24 * 7)
 }
 
-export {milliSecondsToWeeks}
+
+const DateHelper = {
+    millisecondsToWeeks
+}
+
+export default DateHelper;

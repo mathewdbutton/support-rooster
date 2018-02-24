@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import SupportPersonListContainer from './SupportPersonList/support_person_list_container'
 import FilterInput from './FilterInput/filter_input_container'
 import Moment from 'moment'
-import {milliSecondsToWeeks} from '../utils/date_helper'
+import PeopleReorderer from '../utils/people_reorderer'
 import styled from 'styled-components'
 import 'bulma/css/bulma.css'
 
@@ -15,12 +15,9 @@ export default class RootComponent extends Component {
 
         const dateFrom = Moment(process.env.REACT_APP_START_DATE, "DD-MM-YY")
         const supportPeople = process.env.REACT_APP_SUPPORT_PEOPLE.split(',')
-        const weeksBeen = milliSecondsToWeeks(dateFrom - Moment())
 
         //Bring the current person to the front of the array
-        const reorderedSupportList = supportPeople
-            .slice(weeksBeen)
-            .concat(supportPeople.slice(0, weeksBeen))
+        let reorderedSupportList = PeopleReorderer.getSupportList(dateFrom,Moment(),supportPeople)
 
         this.state = {
             people: reorderedSupportList,
