@@ -32,6 +32,11 @@ describe('#getSupportListOrder', () => {
         expect(newOrder).toEqual(supportList)
     })
 
+    it('people array shifts by 4', () => {
+        let newOrder = PeopleReorderer.getSupportListOrder(4, supportList)
+        expect(newOrder).toEqual(["steve","bob","mat"])
+    })
+
     it('people array remains the same', () => {
         let newOrder = PeopleReorderer.getSupportListOrder(0, supportList)
         expect(newOrder).toEqual(supportList)
