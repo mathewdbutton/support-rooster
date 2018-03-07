@@ -16,7 +16,7 @@ const CentreAlignWrapper = styled.div`
     text-align:center
 `
 
-const SupportPersonItemView = (props) => {
+const SupportPersonHeroView = (props) => {
 
     const { name, index, startDate, endDate, image, loaded } = props
 
@@ -25,17 +25,20 @@ const SupportPersonItemView = (props) => {
         <PersonWrapper loaded={loaded} backgroundColour={getRandomColour()[index]} textColour={getAppropriateTextColour(getRandomColour()[index])}>
             <div className="columns">
                 <div className="column">
-                    <span>{name}</span>
-                    <p>{startDate} - {endDate}</p>
+                    <CentreAlignWrapper className="column">
+                    <h4 className="title is-4">{name}</h4>
+                    <h4 className="title is-4">{startDate} - {endDate}</h4>
+                    </CentreAlignWrapper>
                 </div>
-                <CentreAlignWrapper className="column">
-                    <ImageWrapper image={image}/>
-                </CentreAlignWrapper>
+
             </div>
+            <CentreAlignWrapper className="column">
+                <ImageWrapper image={image}/>
+            </CentreAlignWrapper>
         </PersonWrapper>
     );
 }
 
-SupportPersonItemView.propTypes = {};
+SupportPersonHeroView.propTypes = {};
 
-export default SupportPersonItemView;
+export default SupportPersonHeroView;

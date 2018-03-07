@@ -1,11 +1,16 @@
 import RandomColor from 'randomcolor'
 import CONSTANTS from '../shared/constants'
 
-const getRandomColour = RandomColor({
-    count: 10,
-    hue: CONSTANTS.THEME.TILE_SET,
-    format: 'rgb'
-});
+const getRandomColour = (seed) => {
+    if (seed === undefined) {
+        seed = Math.floor(Math.random() * Math.floor(10))
+    }
+    return RandomColor({
+        count: 10,
+        hue: CONSTANTS.THEME.TILE_SET,
+        format: 'rgb',
+        seed: seed || 1
+})};
 
 const getAppropriateTextColour = (rgba) => {
     rgba = rgba.match(/\d+/g);

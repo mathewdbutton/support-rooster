@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import nope from '../../images/how-about-no-quote-1.jpg'
+import {getRandomColour, getAppropriateTextColour} from '../../utils/colour_helper'
 
 import styled from 'styled-components'
 
 const IncrementButton = styled.button`
 margin:15px 5px;
+color: ${props => props.textColour} !important;
+background-color: ${props => props.backgroundColour} !important;
 `
 
 const FilterInputView = (props) => {
@@ -22,9 +25,9 @@ const FilterInputView = (props) => {
                            onChange={props.valueChanged}/>
                 </div>
                 <div className="column is-mobile">
-                    <IncrementButton value="1" className="button is-primary is-mobile"
+                    <IncrementButton backgroundColour={getRandomColour()[0]} textColour={getAppropriateTextColour(getRandomColour()[0])} value="1" className="button  is-mobile"
                                      onClick={props.incrementValue}>+</IncrementButton>
-                    <IncrementButton value="-1" className="button is-primary is-mobile"
+                    <IncrementButton backgroundColour={getRandomColour()[0]} textColour={getAppropriateTextColour(getRandomColour()[0])} value="-1" className="button  is-mobile"
                                      onClick={props.incrementValue}>-</IncrementButton>
                 </div>
             </div>

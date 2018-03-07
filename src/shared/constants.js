@@ -6,6 +6,11 @@ const CONSTANTS = {
     },
     THEME: {
         TILE_SET: process.env.REACT_APP_THEME_TILE_SET || "green"
+    },
+    INIT: {
+        START_DATE: process.env.REACT_APP_START_DATE,
+        SUPPORT_LIST: process.env.REACT_APP_SUPPORT_PEOPLE,
+        TITLE: process.env.REACT_APP_TITLE || "Support Rooster"
     }
 }
 
