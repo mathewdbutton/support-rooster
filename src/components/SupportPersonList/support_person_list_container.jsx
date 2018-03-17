@@ -39,13 +39,13 @@ class SupportPersonListContainer extends Component {
             let date = Moment().add(i, "week")
             let currentPerson = people[i % people.length]
             if(i === 0) {
-                supportPersonList.push(<div key={i} className="column is-offset-one-third is-one-third"><SupportHeroContainer
+                supportPersonList.push(<div key={i} className="column is-offset-one-third-desktop  is-offset-one-third-tablet is-one-third-tablet is-one-third-desktop is-10-mobile is-offset-1-mobile"><SupportHeroContainer
                     index={i % people.length}
                     startDate={Moment(date).isoWeekday(1)}
                     endDate={Moment(date).isoWeekday(5)}
                     name={currentPerson}
                     image={this.state.imageList[i]}/></div>);
-                supportPersonList.push(<div key={-1} className="column  is-one-third"> </div>)
+                supportPersonList.push(<div key={-1} className="column  is-one-third-desktop is-1-mobile is-one-third-tablet"> </div>)
             } else {
                 supportPersonList.push(<div key={i} className="column is-one-quarter-desktop is-half-mobile"><SupportPersonItem
                     index={i % people.length}
